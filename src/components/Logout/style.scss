@@ -1,0 +1,37 @@
+.logout-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgb(138, 138, 138);
+  }
+
+  &__username {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    text-transform: capitalize;
+  }
+
+  &__logout-icon {
+    font-size: 1.2rem;
+    color: #000000;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, color 0.3s ease;
+
+    &:hover {
+      color: #d32f2f;
+      transform: scale(1.1);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}

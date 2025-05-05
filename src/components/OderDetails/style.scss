@@ -1,0 +1,136 @@
+.order-list {
+  margin-top: 20px;
+
+  &__title {
+    font-size: 20px;
+    color: #333;
+  }
+
+  &__add-btn {
+    margin: 10px 0;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+
+  &__error {
+    color: red;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  &__table-head th,
+  &__table-body td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    font-size: 14px;
+    text-align: left;
+  }
+
+  &__section-title {
+    background-color: #eaeaea;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  &__row:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  &__icon {
+    color: #888;
+    font-size: 16px;
+    margin-right: 8px;
+    cursor: pointer;
+
+    &:hover {
+      color: red;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+  }
+
+  &__dialog {
+    border: none;
+    border-radius: 8px;
+    padding: 20px;
+    width: 400px;
+    animation: fade-in 0.3s ease-in-out;
+    background: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+
+    &::backdrop {
+      background: rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  &__dialog-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__dialog-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  &__dialog-subtitle {
+    font-size: 16px;
+    margin: 8px 0 4px;
+  }
+
+  &__dialog-text {
+    font-size: 14px;
+    margin: 2px 0;
+  }
+
+  &__dialog-divider {
+    margin: 10px 0;
+  }
+
+  &__dialog-close-btn {
+    margin-top: 12px;
+    padding: 8px;
+    font-weight: bold;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
