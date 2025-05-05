@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Product } from "../../interfaces/Products";
 import { getAllProducts } from "../../services/ProductService";
 import { handleDeleteProduct } from "../../helpers/ProductHelpers";
+import Swal from 'sweetalert2';
 
 function Products() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -16,10 +18,27 @@ function Products() {
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
   }, []);
-
-  const handleDelete = (product: Product) => {
-    handleDeleteProduct(product, setProducts);
+  
+  const handleDelete = async (product: Product) => {
+    const result = await Swal.fire({
+      title: `¿Eliminar ${product.ProductName}?`,
+      text: "Esta acción no se puede deshacer.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar',
+    });
+  
+    if (result.isConfirmed) {
+      try {
+        await handleDeleteProduct(product.ProductId, setProducts);
+        Swal.fire('Eliminado', 'El producto fue eliminado correctamente.', 'success');
+      } catch (err: any) {
+        Swal.fire('Error', err.message || 'Ocurrió un error.', 'error');
+      }
+    }
   };
+  
 
   return (
     <div className="product-list">
@@ -32,7 +51,7 @@ function Products() {
         Add Product
       </button>
 
-      {loading && <p className="product-list__message">Cargando...</p>}
+      {loading && <p className="product-list__message">Loading...</p>}
       {error && (
         <p className="product-list__message product-list__message--error">
           Error: {error}

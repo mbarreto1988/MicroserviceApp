@@ -33,16 +33,16 @@ function AppContent() {
       {!hideNav && (
         <nav className="app__nav">
           <Link className={getLinkClass("/wellcome")} to="/wellcome">
-            Inicio
+          <i className="fa-solid fa-house"></i>
           </Link>
           <Link className={getLinkClass("/customers")} to="/customers">
-            Customers
+          <i className="fa-regular fa-address-book"></i> Customers
           </Link>
           <Link className={getLinkClass("/products")} to="/products">
-            Products
+          <i className="fa-solid fa-gift"></i> Products
           </Link>
           <Link className={getLinkClass("/order-details")} to="/order-details">
-            Order Details
+          <i className="fa-solid fa-file"></i> Order Details
           </Link>
           <Logout />
         </nav>

@@ -28,7 +28,7 @@ function EditProduct() {
           productStock: data.ProductStock
         });
       } catch {
-        alert("No se pudo cargar el producto");
+        alert("The product could not be loaded");
       }
     };
 
@@ -53,11 +53,11 @@ function EditProduct() {
         body: JSON.stringify(form)
       });
 
-      if (!res.ok) throw new Error("Error al editar producto");
+      if (!res.ok) throw new Error("Error editing product");
 
       navigate("/products");
     } catch (err) {
-      alert("No se pudo editar el producto");
+      alert("The product could not be edited.");
     }
   };
 
@@ -101,7 +101,7 @@ function EditProduct() {
           className="form-container__form-input"
         />
         <button className="form-container__form-button" type="submit">
-          Guardar Cambios
+          Save Changes
         </button>
       </form>
     </div>

@@ -68,7 +68,7 @@ function NewOrder() {
       <form onSubmit={handleSubmit} className="new-order__form">
         <div className="new-order__field">
           <label htmlFor="customer" className="new-order__label">
-            Cliente
+            Client Name
           </label>
           <select
             id="customer"
@@ -91,7 +91,7 @@ function NewOrder() {
 
         <div className="new-order__field">
           <label htmlFor="product" className="new-order__label">
-            Producto
+            Product Name
           </label>
           <select
             id="product"
@@ -113,18 +113,18 @@ function NewOrder() {
         </div>
 
         {selectedProduct && stock === 0 ? (
-          <p className="new-order__warning">Producto sin stock.</p>
+          <p className="new-order__warning">Product out of stock.</p>
         ) : (
           selectedProduct && (
             <p style={{ color: "blue", marginTop: "5px" }}>
-              {stock} unidades disponibles
+              {stock} available units
             </p>
           )
         )}
 
         <div className="new-order__field">
           <label htmlFor="quantity" className="new-order__label">
-            Cantidad
+            Quantity
           </label>
           <input
             type="number"
@@ -137,7 +137,7 @@ function NewOrder() {
         </div>
 
         <button type="submit" className="new-order__submit">
-          Crear Orden
+          Create Order
         </button>
       </form>
     </div>

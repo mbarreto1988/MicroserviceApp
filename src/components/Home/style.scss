@@ -1,40 +1,49 @@
 .home {
+  background: linear-gradient(135deg, #e0eafc, #cfdef3);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  &__buttons {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
     align-items: center;
-    height: 100vh;
-  
-    &__buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+  }
+
+  &__button {
+    width: 200px;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
-  
-    &__button {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      border: none;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
-  
-      &--login {
-        background-color: #4CAF50;
-        color: white;
-  
-        &:hover {
-          background-color: #45a049;
-        }
+
+    &--login {
+      background-color: #4CAF50;
+      color: white;
+
+      &:hover {
+        background-color: #43a047;
       }
-  
-      &--register {
-        background-color: #008CBA;
-        color: white;
-  
-        &:hover {
-          background-color: #007bb5;
-        }
+    }
+
+    &--register {
+      background-color: #008CBA;
+      color: white;
+
+      &:hover {
+        background-color: #007bb5;
       }
     }
   }
-  
+}

@@ -48,25 +48,25 @@ function OrderDetails() {
         <thead className="order-list__table-head">
           <tr>
             <th colSpan={5} className="order-list__section-title">
-              🧍 Cliente
+              🧍 Customer
             </th>
             <th colSpan={5} className="order-list__section-title">
-              📦 Producto
+              📦 Product
             </th>
             <th className="order-list__section-title">Acciones</th>
           </tr>
           <tr>
-            <th>Nombre</th>
+            <th>Name</th>
             <th>Email</th>
-            <th>DNI</th>
-            <th>Dirección</th>
-            <th>Registrado</th>
-            <th>Nombre</th>
-            <th>Descripción</th>
-            <th>Precio</th>
-            <th>Cantidad</th>
+            <th>DNI Number</th>
+            <th>Address</th>
+            <th>Register Date</th>
+            <th>Product Name</th>
+            <th>Product Description</th>
+            <th>Price</th>
+            <th>Quantity</th>
             <th>Total</th>
-            <th>Editar / Borrar</th>
+            <th>View Order</th>
           </tr>
         </thead>
         <tbody className="order-list__table-body">

@@ -4,6 +4,7 @@ import { Customer } from "../../interfaces/Customer";
 import { getAllCustomers  } from "../../services/CustomerService";
 import { handleDeleteCustomer } from '../../helpers/CustomerHelpers'
 
+
 function Customers() {
   const [customers, setCustomers] = useState<Customer[]>([]);
   const [loading, setLoading] = useState(true);
@@ -38,12 +39,12 @@ function Customers() {
       <table className="customer-list__table">
         <thead className="customer-list__table-head">
           <tr className="customer-list__table-row">
-            <th className="customer-list__table-header">Nombre</th>
+            <th className="customer-list__table-header">Nmae</th>
             <th className="customer-list__table-header">Email</th>
-            <th className="customer-list__table-header">DNI</th>
-            <th className="customer-list__table-header">Dirección</th>
-            <th className="customer-list__table-header">Fecha Registro</th>
-            <th className="customer-list__table-header">Acciones</th>
+            <th className="customer-list__table-header">DNI Number</th>
+            <th className="customer-list__table-header">Address</th>
+            <th className="customer-list__table-header">Created Date</th>
+            <th className="customer-list__table-header">Actions</th>
           </tr>
         </thead>
         <tbody className="customer-list__table-body">

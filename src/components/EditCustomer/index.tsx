@@ -93,7 +93,7 @@ function EditCustomer() {
           required
         />
         <button className="form-container__form-button" type="submit">
-          Guardar Cambios
+          Save Changes
         </button>
       </form>
     </div>

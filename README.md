@@ -8,4 +8,8 @@ Cuenta con un boton de Logout y la sesion del usuario se guarda en el LocalStora
 
 la app esta construida por varios componentes especificos para su uso
 
-#MicroserviceApp
+# MicroserviceApp inicio de aplicacion
+
+para poder correr la aplicacion se debe correr el comando "npm run dev"
+
+en el caso de no levantar verificar las dependencias, correr npm install y luego npm run build

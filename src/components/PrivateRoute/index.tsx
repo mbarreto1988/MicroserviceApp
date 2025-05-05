@@ -8,7 +8,7 @@ interface Props {
 
 const PrivateRoute: React.FC<Props> = ({ children }) => {
   if (!isSessionValid()) {
-    return <Navigate to="/login" />;
+    return <Navigate to="/login?auth=required" />;
   }
 
   return <>{children}</>;

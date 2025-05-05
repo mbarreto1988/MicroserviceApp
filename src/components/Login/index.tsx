@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { LoginService } from "../../services/LoginService";
+import { useLocation } from "react-router-dom";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const query = new URLSearchParams(location.search);
+  const authRequired = query.get("auth") === "required";
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg("");
@@ -28,6 +34,11 @@ const Login: React.FC = () => {
   return (
     <div className="login">
       <h2 className="login__title">Login</h2>
+      {authRequired && (
+        <div className="login__info">
+          You must log in to access that page..
+        </div>
+      )}
       <form className="login__form" onSubmit={handleSubmit}>
         <div className="login__field">
           <label className="login__label" htmlFor="email">
@@ -63,7 +74,9 @@ const Login: React.FC = () => {
         </button>
       </form>
       <div className="login__register-link">
-        <p>Don't have an account? <Link to="/register">Register here</Link></p>
+        <p>
+          Don't have an account? <Link to="/register">Register here</Link>
+        </p>
       </div>
     </div>
   );

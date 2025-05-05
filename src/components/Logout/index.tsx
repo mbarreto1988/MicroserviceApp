@@ -14,7 +14,8 @@ const Logout: React.FC = () => {
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("session");
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("sessionExpiresAt");
     localStorage.removeItem("user");
     navigate("/");
   };
