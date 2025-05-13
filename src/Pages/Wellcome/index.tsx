@@ -17,7 +17,7 @@ function Wellcome() {
     <div className="wellcome">
       <div className="wellcome__container">
         <h1 className="wellcome__title">¡Wellcome, {userName}!</h1>
-        <p className="wellcome__text">We are glad you visited us! 🎉</p>
+        <p className="wellcome__text">We are glad you visited us!. 🎉</p>
       </div>
     </div>
   );
