@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getCustomerById, updateCustomer } from '../../services/CustomerService'
+import {
+  getCustomerById,
+  updateCustomer
+} from "../../services/CustomerService";
+import Button from "../../components/Button";
 
 function EditCustomer() {
   const { id } = useParams();
@@ -29,7 +33,7 @@ function EditCustomer() {
         alert("No se pudo cargar el cliente");
       }
     };
-  
+
     fetchCustomer();
   }, [id]);
 
@@ -39,7 +43,7 @@ function EditCustomer() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-  
+
     try {
       await updateCustomer(id!, {
         CustomerId: form.customerId,
@@ -49,7 +53,7 @@ function EditCustomer() {
         CustomerDni: form.customerDni,
         CustomerRegistrationDate: new Date()
       });
-  
+
       navigate("/customers");
     } catch {
       alert("No se pudo editar el cliente");
@@ -92,9 +96,11 @@ function EditCustomer() {
           onChange={handleChange}
           required
         />
-        <button className="form-container__form-button" type="submit">
-          Save Changes
-        </button>
+        <Button
+          ButtonType="submit"
+          ButtonClassName="form-container__form-button"
+          ButtonText="Save Changes"
+        />
       </form>
     </div>
   );

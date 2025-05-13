@@ -1,11 +1,11 @@
 import { BrowserRouter as Router } from "react-router-dom";
-import AppContent from "./AppContent";
+import PagesComponents from "./Pages";
 import './App.scss';
 
 function App() {
   return (
     <Router>
-      <AppContent />
+      <PagesComponents />
     </Router>
   );
 }

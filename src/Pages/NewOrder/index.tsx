@@ -7,6 +7,7 @@ import {
   getProductsorder,
   createOrder
 } from "../../services/OrderService";
+import Button from "../../components/Button";
 
 function NewOrder() {
   const [customers, setCustomers] = useState<Customer[]>([]);
@@ -135,10 +136,7 @@ function NewOrder() {
             required
           />
         </div>
-
-        <button type="submit" className="new-order__submit">
-          Create Order
-        </button>
+        <Button ButtonType="submit" ButtonClassName="new-order__submit" ButtonText="Create Order" />
       </form>
     </div>
   );

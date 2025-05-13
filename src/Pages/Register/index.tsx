@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { registerUser } from "../../services/RegisterServices";
+import Button from "../../components/Button";
 
 const Register: React.FC = () => {
   const [name, setName] = useState("");
@@ -71,12 +72,16 @@ const Register: React.FC = () => {
           />
         </div>
         {error && <p className="register__error">{error}</p>}
-        <button className="register__button" type="submit">
-          Register
-        </button>
+        <Button
+          ButtonType="submit"
+          ButtonClassName="register__button"
+          ButtonText="Register"
+        />
       </form>
       <div className="register__login-link">
-        <p>Already have an account? <Link to="/login">Login here</Link></p>
+        <p>
+          Already have an account? <Link to="/login">Login here</Link>
+        </p>
       </div>
     </div>
   );

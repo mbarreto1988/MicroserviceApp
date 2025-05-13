@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Customer } from "../../interfaces/Customer";
-import { getAllCustomers  } from "../../services/CustomerService";
-import { handleDeleteCustomer } from '../../helpers/CustomerHelpers'
-
+import { getAllCustomers } from "../../services/CustomerService";
+import { handleDeleteCustomer } from "../../helpers/CustomerHelpers";
+import Button from "../../components/Button";
 
 function Customers() {
   const [customers, setCustomers] = useState<Customer[]>([]);
@@ -12,7 +12,7 @@ function Customers() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    getAllCustomers ()
+    getAllCustomers()
       .then(setCustomers)
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
@@ -21,13 +21,12 @@ function Customers() {
   return (
     <div className="customer-list">
       <h1 className="customer-list__title">Customer List</h1>
-
-      <button
-        className="customer-list__button customer-list__button--add"
-        onClick={() => navigate("/customers/add")}
-      >
-        Add Customer
-      </button>
+      
+      <Button
+        ButtonClassName="customer-list__button customer-list__button--add"
+        ButtonText="Add Customer"
+        ButonOnClick={() => navigate("/customers/add")}
+      />
 
       {loading && <p className="customer-list__message">Cargando...</p>}
       {error && (

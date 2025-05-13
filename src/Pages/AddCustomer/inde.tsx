@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { handleAddCustomerSubmit } from '../../helpers/CustomerHelpers'
+import { handleAddCustomerSubmit } from "../../helpers/CustomerHelpers";
 import { createCustomer } from "../../services/CustomerService";
+import Button from "../../components/Button";
 
 function AddCustomer() {
   const [form, setForm] = useState({
@@ -19,7 +20,12 @@ function AddCustomer() {
   return (
     <div className="form-container">
       <h2 className="form-container__title">Agregar Customer</h2>
-      <form className="form-container__form" onSubmit={(e) => handleAddCustomerSubmit(e, form, createCustomer, navigate)}>
+      <form
+        className="form-container__form"
+        onSubmit={(e) =>
+          handleAddCustomerSubmit(e, form, createCustomer, navigate)
+        }
+      >
         <input
           className="form-container__form-input"
           name="customerName"
@@ -48,9 +54,11 @@ function AddCustomer() {
           onChange={handleChange}
           required
         />
-        <button className="form-container__form-button" type="submit">
-          Add Customer
-        </button>
+        <Button
+          ButtonType="submit"
+          ButtonClassName="form-container__form-button"
+          ButtonText="Add Customer"
+        />
       </form>
     </div>
   );

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { LoginService } from "../../services/LoginService";
 import { useLocation } from "react-router-dom";
+import Button from "../../components/Button";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -35,9 +36,7 @@ const Login: React.FC = () => {
     <div className="login">
       <h2 className="login__title">Login</h2>
       {authRequired && (
-        <div className="login__info">
-          You must log in to access that page..
-        </div>
+        <div className="login__info">You must log in to access that page..</div>
       )}
       <form className="login__form" onSubmit={handleSubmit}>
         <div className="login__field">
@@ -68,10 +67,11 @@ const Login: React.FC = () => {
         </div>
 
         {errorMsg && <div className="login__error">{errorMsg}</div>}
-
-        <button className="login__button" type="submit">
-          Login
-        </button>
+        <Button
+          ButtonType="submit"
+          ButtonClassName="login__button"
+          ButtonText="Login"
+        />
       </form>
       <div className="login__register-link">
         <p>

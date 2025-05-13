@@ -1,17 +1,18 @@
-@use "../Home/style.scss" as home;
-@use "../Customer/style.scss" as customer;
-@use "../AddCustomer/style.scss" as addCustomer;
-@use "../EditCustomer/style.scss" as editCustomer;
-@use "../Products/style.scss" as products;
-@use "../AddProduct/style.scss" as addProduct;
-@use "../EditProduct/style.scss" as editProduct;
-@use "../OderDetails/style.scss" as orderDetail;
-@use "../NewOrder/style.scss" as newOrder;
-@use "../Wellcome/style.scss" as wellcome;
-@use "../Login/style.scss" as login;
-@use "../Logout/style.scss" as logout;
-@use "../Register/style.scss" as register;
-@use "../Footer/style.scss" as footer;
+@use "./Home/style.scss" as home;
+@use "./Customer/style.scss" as customer;
+@use "./AddCustomer/style.scss" as addCustomer;
+@use "./EditCustomer/style.scss" as editCustomer;
+@use "./Products/style.scss" as products;
+@use "./AddProduct/style.scss" as addProduct;
+@use "./EditProduct/style.scss" as editProduct;
+@use "./OderDetails/style.scss" as orderDetail;
+@use "./NewOrder/style.scss" as newOrder;
+@use "./Wellcome/style.scss" as wellcome;
+@use "./Login/style.scss" as login;
+@use "../components/Logout/style.scss" as logout;
+@use "./Register/style.scss" as register;
+@use "../components/Footer/style.scss" as footer;
+@use "../components/Button/style.scss" as button;
 
 html,
 body {

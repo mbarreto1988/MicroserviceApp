@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { addProduct } from "../../services/ProductService";
+import Button from "../../components/Button";
 
 function AddProduct() {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ function AddProduct() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setProduct(prev => ({
+    setProduct((prev) => ({
       ...prev,
       [name]: value
     }));
@@ -72,9 +73,11 @@ function AddProduct() {
           onChange={handleChange}
           required
         />
-        <button className="form-container__form-button" type="submit">
-          Add Product
-        </button>
+        <Button
+          ButtonType="submit"
+          ButtonClassName="form-container__form-button"
+          ButtonText="Add Product"
+        />
       </form>
     </div>
   );

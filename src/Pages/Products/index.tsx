@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { Product } from "../../interfaces/Products";
 import { getAllProducts } from "../../services/ProductService";
 import { handleDeleteProduct } from "../../helpers/ProductHelpers";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
+import Button from "../../components/Button";
 
 function Products() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -18,38 +19,39 @@ function Products() {
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
   }, []);
-  
+
   const handleDelete = async (product: Product) => {
     const result = await Swal.fire({
       title: `¿Eliminar ${product.ProductName}?`,
       text: "Esta acción no se puede deshacer.",
-      icon: 'warning',
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonText: 'Sí, eliminar',
-      cancelButtonText: 'Cancelar',
+      confirmButtonText: "Sí, eliminar",
+      cancelButtonText: "Cancelar"
     });
-  
+
     if (result.isConfirmed) {
       try {
         await handleDeleteProduct(product.ProductId, setProducts);
-        Swal.fire('Eliminado', 'El producto fue eliminado correctamente.', 'success');
+        Swal.fire(
+          "Eliminado",
+          "El producto fue eliminado correctamente.",
+          "success"
+        );
       } catch (err: any) {
-        Swal.fire('Error', err.message || 'Ocurrió un error.', 'error');
+        Swal.fire("Error", err.message || "Ocurrió un error.", "error");
       }
     }
   };
-  
 
   return (
     <div className="product-list">
       <h1 className="product-list__title">Product List</h1>
-
-      <button
-        className="product-list__button product-list__button--add"
-        onClick={() => navigate("/products/add")}
-      >
-        Add Product
-      </button>
+      <Button
+        ButtonClassName="product-list__button product-list__button--add"
+        ButtonText="Add Product"
+        ButonOnClick={() => navigate("/products/add")}
+      />
 
       {loading && <p className="product-list__message">Loading...</p>}
       {error && (

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { BASE_URL, AUTH_TOKEN } from "../../config";
 import { getProductById } from "../../services/ProductService";
+import Button from "../../components/Button";
 
 function EditProduct() {
   const { id } = useParams();
@@ -37,7 +38,13 @@ function EditProduct() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setForm({ ...form, [name]: name.includes("Price") || name.includes("Stock") ? parseFloat(value) : value });
+    setForm({
+      ...form,
+      [name]:
+        name.includes("Price") || name.includes("Stock")
+          ? parseFloat(value)
+          : value
+    });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -100,9 +107,11 @@ function EditProduct() {
           required
           className="form-container__form-input"
         />
-        <button className="form-container__form-button" type="submit">
-          Save Changes
-        </button>
+        <Button
+          ButtonType="submit"
+          ButtonClassName="form-container__form-button"
+          ButtonText="Save Changes"
+        />
       </form>
     </div>
   );

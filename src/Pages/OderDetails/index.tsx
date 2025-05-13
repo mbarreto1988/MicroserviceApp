@@ -6,6 +6,7 @@ import {
   getAllOrderDetails,
   getOrderDetailById
 } from "../../services/OrderDetailService";
+import Button from "../../components/Button";
 
 function OrderDetails() {
   const [orders, setOrders] = useState<OrderDetail[]>([]);
@@ -34,13 +35,12 @@ function OrderDetails() {
 
   return (
     <div className="order-list">
-      <h1 className="order-list__title">Order List</h1>
-      <button
-        className="order-list__add-btn"
-        onClick={() => navigate("/order/new")}
-      >
-        Add New Order
-      </button>
+      <h1 className="order-list__title">Historical Order List</h1>
+      <Button
+        ButtonClassName="order-list__add-btn"
+        ButtonText="Add New Order"
+        ButonOnClick={() => navigate("/order/new")}
+      />
       {loading && <p className="order-list__loading">Cargando...</p>}
       {error && <p className="order-list__error">Error: {error}</p>}
 
@@ -139,12 +139,11 @@ function OrderDetails() {
                 <strong>Total:</strong> ${selectedOrder.TotalPrice}
               </p>
             </div>
-            <button
-              className="order-list__dialog-close-btn"
-              onClick={() => dialogRef.current?.close()}
-            >
-              Cerrar
-            </button>
+            <Button
+              ButtonClassName="order-list__dialog-close-btn"
+              ButtonText="Close"
+              ButonOnClick={() => dialogRef.current?.close()}
+            />
           </div>
         )}
       </dialog>

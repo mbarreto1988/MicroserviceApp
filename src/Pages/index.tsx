@@ -1,53 +1,31 @@
 import {
   Routes,
   Route,
-  Link,
   useLocation
 } from "react-router-dom";
-import Home from "../Home";
-import Customers from "../Customer";
-import AddCustomer from "../AddCustomer/inde";
-import EditCustomer from "../EditCustomer";
-import Products from "../Products";
-import AddProduct from "../AddProduct";
-import EditProduct from "../EditProduct";
-import OrderDetails from "../OderDetails";
-import NewOrder from "../NewOrder";
-import Wellcome from "../Wellcome";
-import Login from "../Login";
-import Logout from "../Logout";
-import Register from "../Register";
-import PrivateRoute from "../PrivateRoute";
-import Footer from "../Footer";
+import Home from "./Home";
+import Customers from "./Customer";
+import AddCustomer from "./AddCustomer/inde";
+import EditCustomer from "./EditCustomer";
+import Products from "./Products";
+import AddProduct from "./AddProduct";
+import EditProduct from "./EditProduct";
+import OrderDetails from "./OderDetails";
+import NewOrder from "./NewOrder";
+import Wellcome from "./Wellcome";
+import Login from "./Login";
+import Register from "./Register";
+import PrivateRoute from "../components/PrivateRoute";
+import Footer from "../components/Footer";
+import Headers from "../components/Headers";
 
-function AppContent() {
+function PagesComponents() {
   const location = useLocation();
   const hideNav = ["/", "/login", "/register"].includes(location.pathname);
 
-  const getLinkClass = (path: string) => {
-    return location.pathname === path ? "app__nav-link active" : "app__nav-link";
-  };
-
   return (
     <div className="app">
-      {!hideNav && (
-        <nav className="app__nav">
-          <Link className={getLinkClass("/wellcome")} to="/wellcome">
-          <i className="fa-solid fa-house"></i>
-          </Link>
-          <Link className={getLinkClass("/customers")} to="/customers">
-          <i className="fa-regular fa-address-book"></i> Customers
-          </Link>
-          <Link className={getLinkClass("/products")} to="/products">
-          <i className="fa-solid fa-gift"></i> Products
-          </Link>
-          <Link className={getLinkClass("/order-details")} to="/order-details">
-          <i className="fa-solid fa-file"></i> Order Details
-          </Link>
-          <Logout />
-        </nav>
-      )}
-
+      <Headers />
       <div className="app__content">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -132,4 +110,4 @@ function AppContent() {
   );
 }
 
-export default AppContent;
+export default PagesComponents;
